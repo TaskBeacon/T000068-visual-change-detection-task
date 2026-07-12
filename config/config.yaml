@@ -1,0 +1,16 @@
+subinfo_fields: [{name: subject_id, type: int, constraints: {min: 101, max: 999, digits: 3}}]
+subinfo_mapping: {subject_id: Participant ID, Participant Information: Participant Information, registration_failed: Registration failed, registration_successful: Registration successful, invalid_input: "Invalid {field}"}
+window: {size: [1280, 800], units: deg, screen: 0, bg_color: "#101216", fullscreen: false, monitor_width_cm: 35.5, monitor_distance_cm: 50}
+task: {task_name: Visual Change Detection Task, save_path: ./outputs/human, language: English, voice_enabled: false, total_blocks: 2, total_trials: 168, trial_per_block: 84, conditions: [set_2_same, set_2_change, set_4_same, set_4_change, set_6_same, set_6_change, set_8_same, set_8_change], key_list: [f, j], seed_mode: same_across_sub, delta: 0.0, plan_seed: 68068, practice_repetitions_per_cell: 1, scored_repetitions_per_cell: 20, square_size_deg: 1.25, phase_order: [instruction, fixation, memory_array, retention, test_array, practice_summary, good_bye]}
+timing: {fixation_duration: 0.5, memory_duration: 0.1, retention_duration: 0.9, response_window: 2.0}
+stimuli:
+  instruction: {type: text, font: Arial, text: "Remember the colors and locations of the squares. After a short delay, decide whether the test array is identical or whether one square changed color.\n\nF = SAME     J = CHANGE\n\nPress SPACE to begin practice.", color: white, height: 0.72, wrapWidth: 24, pos: [0, 0]}
+  fixation: {type: text, font: Arial, text: "+", color: white, height: 0.65, pos: [0, 0]}
+  color_square: {type: rect, width: 1.25, height: 1.25, fillColor: white, lineColor: white, lineWidth: 1, pos: [0, 0]}
+  practice_summary: {type: text, font: Arial, text: "Practice complete\n\nAccuracy: {accuracy}\n\nF = SAME     J = CHANGE\n\nPress SPACE for the main task.", color: white, height: 0.72, wrapWidth: 24, pos: [0, 0]}
+  good_bye: {type: text, font: Arial, text: "Task complete\n\nAccuracy: {accuracy}\nEstimated capacity (maximum K): {max_k}\nK at set sizes 2, 4, 6, 8: {k2}, {k4}, {k6}, {k8}\n\nPress SPACE to exit.", color: white, height: 0.68, wrapWidth: 25, pos: [0, 0]}
+triggers:
+  map: {experiment_start: 1, block_start: 10, fixation: 20, memory_set_2: 22, memory_set_4: 24, memory_set_6: 26, memory_set_8: 28, retention: 30, test_same: 40, test_change: 41, same_response: 50, change_response: 51, response_timeout: 52, block_end: 90, experiment_end: 99}
+  driver: {type: serial_url, url: "loop://", baudrate: 115200, timeout: 1}
+  policy: {strict: false}
+  timing: {post_delay_s: 0.001}

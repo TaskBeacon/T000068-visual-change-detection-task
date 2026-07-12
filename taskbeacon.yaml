@@ -1,0 +1,12 @@
+id: T000068
+slug: visual-change-detection-task
+title: Visual Change Detection Task
+acquisition: behavior
+variant: color-change-detection
+cognitive_domain: [visual-working-memory, change-detection, capacity]
+maturity: draft
+version: {release_tag: v0.1.0}
+contracts: {taps: v0.2.0}
+runtime: {profile: psyflow}
+evidence: [https://doi.org/10.1038/36846, https://doi.org/10.1037/0096-1523.27.1.92, https://doi.org/10.1017/S0140525X01003922]
+maintainer: [TaskBeacon]
